@@ -1,0 +1,95 @@
+[
+    {
+        "id": "cb5667a5b516f34c",
+        "type": "tab",
+        "label": "Fluxo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d811acaf767c9348",
+        "type": "inject",
+        "z": "cb5667a5b516f34c",
+        "name": "Liga Motor",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 140,
+        "y": 200,
+        "wires": [
+            [
+                "8b494897630bb9f5",
+                "d9ed366a439814f2"
+            ]
+        ]
+    },
+    {
+        "id": "d9ed366a439814f2",
+        "type": "debug",
+        "z": "cb5667a5b516f34c",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "e2592aa9014ad0cf",
+        "type": "debug",
+        "z": "cb5667a5b516f34c",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "8b494897630bb9f5",
+        "type": "delay",
+        "z": "cb5667a5b516f34c",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 380,
+        "y": 200,
+        "wires": [
+            [
+                "e2592aa9014ad0cf"
+            ]
+        ]
+    }
+]
