@@ -1,0 +1,93 @@
+[
+    {
+        "id": "cb5667a5b516f34c",
+        "type": "tab",
+        "label": "Fluxo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d811acaf767c9348",
+        "type": "inject",
+        "z": "cb5667a5b516f34c",
+        "name": "Inject",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "12",
+        "payloadType": "num",
+        "x": 530,
+        "y": 220,
+        "wires": [
+            [
+                "38d0e0d414f4dd66",
+                "d9ed366a439814f2"
+            ]
+        ],
+        "outputLabels": [
+            "M1_on"
+        ]
+    },
+    {
+        "id": "d9ed366a439814f2",
+        "type": "debug",
+        "z": "cb5667a5b516f34c",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "38d0e0d414f4dd66",
+        "type": "function",
+        "z": "cb5667a5b516f34c",
+        "name": "function 1",
+        "func": "// Verifica o valor de msg.topic para identificar a origem da mensagem\n\nvar valor = msg.payload;\n\nif (valor > 10){\n    msg.payload = \" O Valor é maior que 10\";\n}\n\nelse {\n    msg.payload = \" O Valor e menor que 10\";\n}\n\n// Retorna a mensagem modificada\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 300,
+        "wires": [
+            [
+                "27d82032745f40fd"
+            ]
+        ]
+    },
+    {
+        "id": "27d82032745f40fd",
+        "type": "debug",
+        "z": "cb5667a5b516f34c",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 300,
+        "wires": []
+    }
+]
