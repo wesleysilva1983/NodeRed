@@ -1,0 +1,129 @@
+[
+    {
+        "id": "cb5667a5b516f34c",
+        "type": "tab",
+        "label": "Fluxo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0065f3eddfddab8c",
+        "type": "inject",
+        "z": "cb5667a5b516f34c",
+        "name": "Inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "10",
+        "payloadType": "num",
+        "x": 230,
+        "y": 220,
+        "wires": [
+            [
+                "991a53f7225dc0e3",
+                "c4e595073d075aa0"
+            ]
+        ]
+    },
+    {
+        "id": "991a53f7225dc0e3",
+        "type": "function",
+        "z": "cb5667a5b516f34c",
+        "name": "function (for 1)",
+        "func": "var value = msg.payload\nvar new_value = 0\n\nfor (var i=0; i<=10; i++){\n\n    new_value = i;\n\n}\n\nmsg.payload = new_value + value;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 220,
+        "wires": [
+            [
+                "787d7613a79e7808",
+                "e324c5aa2b1d4e2a"
+            ]
+        ]
+    },
+    {
+        "id": "c4e595073d075aa0",
+        "type": "debug",
+        "z": "cb5667a5b516f34c",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "787d7613a79e7808",
+        "type": "function",
+        "z": "cb5667a5b516f34c",
+        "name": "function (else if)",
+        "func": "var value = msg.payload\n\nif (value < 20){\n\n    msg.payload = \"Nivel Baixo\";\n\n}\nelse if (value > 50){\n\n    msg.payload = \"Nivel Alto\";\n\n}\nelse {\n    msg.payload = \"Nível Normal\";\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 220,
+        "wires": [
+            [
+                "89577146ded2b52c"
+            ]
+        ]
+    },
+    {
+        "id": "e324c5aa2b1d4e2a",
+        "type": "debug",
+        "z": "cb5667a5b516f34c",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "89577146ded2b52c",
+        "type": "debug",
+        "z": "cb5667a5b516f34c",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 220,
+        "wires": []
+    }
+]
